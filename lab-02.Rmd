@@ -48,43 +48,45 @@ Les réglages color et fill sont dans aes, car ils dépendent des variables et m
 Boxplot:
 
 ```{r plastic-waste-boxplot}
-# insert code here
+ggplot(data=plastic_waste %>% filter(plastic_waste_per_cap < 3.5), aes(x=continent, y=plastic_waste_per_cap)) + geom_boxplot()
 ```
 
 Violin plot:
 
 ```{r plastic-waste-violin}
-# insert code here
+ggplot(data=plastic_waste %>% filter(plastic_waste_per_cap < 3.5), aes(x=continent, y=plastic_waste_per_cap)) + geom_violin()
 ```
 
-Réponse à la question...
+Qu’est ce que les violin plots permettent de voir sur les données que les boxplot ne permettent pas ?
+
+Les violoins plots permettent de voir une meilleure répartition des données tandis que les boxplots permettent seulement de voir des résultats comme la médiane, les quartiles et les données extrêmes qui ne sortent de la boîte.
 
 ### Exercise 4
 
 
 ```{r plastic-waste-mismanaged}
-# insert code here
+ggplot(data=plastic_waste %>% filter(plastic_waste_per_cap < 3.5), aes(x=mismanaged_plastic_waste_per_cap, y=plastic_waste_per_cap, color=continent)) + geom_point()
 ```
 
-Réponse à la question...
+On voit la relation entre les déchets qui sont produit et comment ils sont gérés. On voit bien que pour ce qui est de l'Afrique, la majorité des déchets qui sont produits sont mal gérés, mais qu'à l'inverse, la majorité des déchets produits par l'Europe sont bien gérés. On voit qu'entre les deux de ces extrémités, l'Amérique du nord a environ la moitié de ses déchets produits qui sont mal gérés et que l'autre moitié produites est bien gérées. Le graphique montre bien la répartition des déchets bien et mal gérés par les différents pays.
 
 ### Exercise 5
 
 
 ```{r plastic-waste-population-total}
-# insert code here
+ggplot(data=plastic_waste %>% filter(plastic_waste_per_cap < 3.5), aes(x=plastic_waste_per_cap, y=total_pop,color=continent)) + geom_point()
 ```
 
 ```{r plastic-waste-population-coastal}
-# insert code here
+ggplot(data=plastic_waste %>% filter(plastic_waste_per_cap < 3.5), aes(x=plastic_waste_per_cap, y=coastal_pop, color=continent)) + geom_point()
 ```
 
-Réponse à la question...
+On voit sur le deuxième graphique qu"il y a plus de pays situées sur le bord de l'eau où la population a moins tendance à produire beaucoup de déchets par habitant que si l'on regarde le graphique contenant l'entièreté de la population. 
 
 ## Conclusion
 
 Recréez la visualisation:
-
+ 
 ```{r recreate-viz}
 # insert code here
 ```
