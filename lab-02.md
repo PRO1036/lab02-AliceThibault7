@@ -26,14 +26,21 @@ plastic_waste <- plastic_waste %>%
 ### Exercise 1
 
 ``` r
-# insert code here
+ggplot(data=plastic_waste %>% filter(plastic_waste_per_cap < 3.5), aes(x=plastic_waste_per_cap)) +
+geom_histogram(binwidth=0.2) +
+facet_wrap(~continent)
 ```
+
+![](lab-02_files/figure-gfm/plastic-waste-continent-1.png)<!-- -->
 
 ### Exercise 2
 
 ``` r
-# insert code here
+ggplot(data=plastic_waste %>% filter(plastic_waste_per_cap < 3.5), aes(x=plastic_waste_per_cap)) +
+  geom_density() 
 ```
+
+![](lab-02_files/figure-gfm/plastic-waste-density-1.png)<!-- -->
 
 Réponse à la question…
 
