@@ -36,11 +36,12 @@ facet_wrap(~continent)
 ### Exercise 2
 
 ```{r plastic-waste-density}
-ggplot(data=plastic_waste %>% filter(plastic_waste_per_cap < 3.5), aes(x=plastic_waste_per_cap)) +
-  geom_density() 
+ggplot(data=plastic_waste %>% filter(plastic_waste_per_cap < 3.5), aes(x=plastic_waste_per_cap, color=continent,fill=continent)) +
+  geom_density(alpha=0.25)
 ```
+Décrivez pourquoi le reglage de la couleur (color et fill) et le réglage de la transparence (alpha) ne se trouvent pas au même endroit ? L’un étant réglé dans aes et l’autre dans geom_density()
 
-Réponse à la question...
+Les réglages color et fill sont dans aes, car ils dépendent des variables et modifient leur présentation visuelle. Pour le paramètre alpha, ce dernier est placé dans geom_density, puisqu’il agit sur la transparence de la couleur sur graphique directement et non sur la variable choisie.
 
 ### Exercise 3
 
